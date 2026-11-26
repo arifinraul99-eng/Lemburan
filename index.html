@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lemburan</title>
+<meta name="theme-color" content="#0f766e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Lemburan">
+<link rel="icon" id="ic" href="data:,">
+<link rel="apple-touch-icon" id="ai" href="data:,">
+<style>
+:root{--bg:#f3f5f4;--card:#fff;--ink:#16211e;--mute:#667370;--line:#e3e8e5;--acc:#0f766e;--selt:#fff;--c1:#14a090;--c2:#e0a82e;--c3:#e0662b;--red:#d03b2f;--redbg:#fdeceb;--cbc:#b45f06;--cbbg:#fff4e2;--sel:#e8f4f1;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1311;--card:#18201d;--ink:#e9efec;--mute:#93a09a;--line:#27312d;--acc:#2dd4bf;--selt:#08130f;--c1:#2dd4bf;--c2:#f0b94a;--c3:#f08050;--red:#ff8f85;--redbg:#33201e;--cbc:#ffb74d;--cbbg:#33291a;--sel:#173a33}}
+:root[data-theme="dark"]{--bg:#0e1311;--card:#18201d;--ink:#e9efec;--mute:#93a09a;--line:#27312d;--acc:#2dd4bf;--selt:#08130f;--c1:#2dd4bf;--c2:#f0b94a;--c3:#f08050;--red:#ff8f85;--redbg:#33201e;--cbc:#ffb74d;--cbbg:#33291a;--sel:#173a33}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:480px;margin:0 auto;padding:12px 14px 48px}
+.hero{background:linear-gradient(135deg,#0f766e,#134e4a);color:#fff;border-radius:20px;padding:18px;box-shadow:0 8px 24px rgba(15,118,110,.25)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.top h1{margin:0;font-size:19px}
+.hero input{background:rgba(255,255,255,.16);border:0;color:#fff;border-radius:10px;padding:8px 10px;font:inherit;font-size:14px;color-scheme:dark}
+.hero input::placeholder{color:rgba(255,255,255,.6)}
+.per{opacity:.85;font-size:13px;margin-top:16px}
+.tot{font-size:36px;font-weight:700;letter-spacing:-.5px;line-height:1.1;margin-top:2px}
+.sub{opacity:.85;font-size:14px;margin-top:2px}
+.bar{height:8px;background:rgba(255,255,255,.2);border-radius:8px;overflow:hidden;margin-top:16px}
+.bar i{display:block;height:100%;width:0;background:#fff;border-radius:8px;transition:width .3s}
+.tg{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:14px}
+.tg input{width:150px;margin-left:auto}
+#progres{font-size:13px;opacity:.92;margin-top:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-top:12px}
+.card h2{font-size:15px;margin:0 0 6px}
+.card.set{display:flex;align-items:center;gap:12px}
+.set label{font-size:14px;color:var(--mute);white-space:nowrap}
+.f{font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 10px;width:100%}
+.hint{font-size:12px;color:var(--mute);margin-top:8px}
+.r{display:grid;grid-template-columns:52px 1fr auto;gap:8px;align-items:center;padding:8px 8px;border-radius:12px}
+.d b{display:block;font-size:20px;line-height:1}
+.d span{font-size:11px;color:var(--mute)}
+.m{min-width:0}
+.hol{display:block;font-size:12px;color:var(--mute);overflow:hidden;text-overflow:ellipsis}
+.amt{display:block;font-weight:600;font-size:14px}
+.c{display:flex;gap:6px}
+.c button{font:inherit;font-size:13px;min-width:46px;padding:9px 6px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink)}
+.c button.c1.sel{background:var(--c1);border-color:var(--c1);color:var(--selt)}
+.c button.c2.sel{background:var(--c2);border-color:var(--c2);color:#1a1300}
+.c button.c3.sel{background:var(--c3);border-color:var(--c3);color:#fff}
+.r.hr{background:var(--redbg)}.r.hr .d b,.r.hr .hol{color:var(--red)}
+.r.cb{background:var(--cbbg)}.r.cb .d b,.r.cb .hol{color:var(--cbc)}
+.r.on{box-shadow:inset 3px 0 0 var(--acc)}
+.r.on:not(.hr):not(.cb){background:var(--sel)}
+.lgd{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:6px}
+.lgd .a{color:var(--red)}.lgd .b{color:var(--cbc)}
+.sl{font-size:13px;color:var(--mute);margin:10px 0 2px}
+svg text{fill:var(--mute);font:10px system-ui,sans-serif}
+svg text.lr{fill:var(--red)}
+svg .c1{fill:var(--c1)}svg .c2{fill:var(--c2)}svg .c3{fill:var(--c3)}
+.ln{fill:none;stroke:var(--acc);stroke-width:2}.ar{fill:var(--sel)}
+.lg span{display:inline-block;width:10px;height:10px;border-radius:3px;margin:0 4px 0 12px}
+.btn{width:100%;font:inherit;font-weight:600;padding:14px;border-radius:14px;border:0;background:var(--acc);color:var(--selt);margin-top:14px}
+.btn.ghost{background:none;color:var(--mute);border:1px solid var(--line);font-weight:500}
+#lock{position:fixed;inset:0;z-index:99;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center}
+.lk{font-size:52px}
+#lock h2{margin:0;font-size:20px}
+#pin{width:220px;text-align:center;font-size:28px;letter-spacing:10px;padding:12px;font-family:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px}
+#pmsg{color:var(--red);min-height:20px;font-size:14px}
+body.lock main{display:none}
+</style>
+</head>
+<body class="lock">
+<div id="lock"><div class="lk">💰</div><h2 id="ptitle">PIN</h2><input id="pin" type="password" inputmode="numeric" maxlength="6" autocomplete="off" aria-label="PIN 6 angka"><div id="pmsg"></div></div>
+<main>
+<section class="hero">
+<div class="top"><h1>💰 Lemburan</h1><input type="month" id="bln" aria-label="Bulan tutup buku"></div>
+<div class="per" id="per"></div>
+<div class="tot" id="tot">Rp 0</div>
+<div class="sub" id="sub"></div>
+<div class="bar"><i id="barfill"></i></div>
+<div class="tg"><span>Target</span><input type="number" id="target" inputmode="numeric" placeholder="Rp periode ini"></div>
+<div id="progres"></div>
+</section>
+<section class="card set"><label for="rate">Upah per jam (Rp)</label><input class="f" type="number" id="rate" inputmode="numeric" placeholder="Isi upah per jam"></section>
+<section class="card">
+<h2>Catat lembur</h2>
+<div id="list"></div>
+<div class="hint">Ketuk jam lembur di tanggalnya, ketuk lagi untuk membatalkan. 2j = 3,5× · 3,5j = 6,5× · 7j Minggu/merah = 14×</div>
+<div class="lgd"><span class="a">Merah: Minggu / libur nasional</span><span class="b">Oranye: cuti bersama</span></div>
+</section>
+<section class="card">
+<h2>Grafik</h2>
+<div class="sl">Per tanggal</div>
+<svg id="g1" viewBox="0 0 330 150" width="100%" role="img" aria-label="Grafik lembur per tanggal"></svg>
+<div class="sl">Total berjalan</div>
+<svg id="g2" viewBox="0 0 330 120" width="100%" role="img" aria-label="Grafik total lembur berjalan"></svg>
+<div class="lg hint"><span style="background:var(--c1);margin-left:0"></span>2 jam<span style="background:var(--c2)"></span>3,5 jam<span style="background:var(--c3)"></span>7 jam</div>
+</section>
+<button class="btn" id="slip">Unduh slip lembur (PDF)</button>
+<div class="hint" id="slipmsg"></div>
+<button class="btn ghost" id="reset">Kosongkan periode ini</button>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+var $=function(i){return document.getElementById(i)};
+var HARI=["Min","Sen","Sel","Rab","Kam","Jum","Sab"],BLN=["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"];
+var HOL={"2026-1-1":["n","Tahun Baru 2026"],"2026-1-16":["n","Isra Mikraj"],"2026-2-16":["c","Imlek"],"2026-2-17":["n","Tahun Baru Imlek"],"2026-3-18":["c","Nyepi"],"2026-3-19":["n","Hari Suci Nyepi"],"2026-3-20":["c","Idulfitri"],"2026-3-21":["n","Idulfitri 1447 H"],"2026-3-22":["n","Idulfitri 1447 H"],"2026-3-23":["c","Idulfitri"],"2026-3-24":["c","Idulfitri"],"2026-4-3":["n","Wafat Yesus Kristus"],"2026-4-5":["n","Paskah"],"2026-5-1":["n","Hari Buruh"],"2026-5-14":["n","Kenaikan Yesus Kristus"],"2026-5-15":["c","Kenaikan Yesus Kristus"],"2026-5-27":["n","Iduladha 1447 H"],"2026-5-28":["c","Iduladha"],"2026-5-31":["n","Waisak"],"2026-6-1":["n","Hari Lahir Pancasila"],"2026-6-16":["n","1 Muharam"],"2026-8-17":["n","HUT Kemerdekaan RI"],"2026-8-25":["n","Maulid Nabi"],"2026-12-24":["c","Natal"],"2026-12-25":["n","Hari Natal"],
+"2027-1-1":["n","Tahun Baru 2027"],"2027-1-5":["n","Isra Mikraj"],"2027-2-5":["c","Imlek"],"2027-2-6":["n","Tahun Baru Imlek"],"2027-3-8":["n","Hari Suci Nyepi"],"2027-3-9":["c","Idulfitri"],"2027-3-10":["n","Idulfitri 1448 H"],"2027-3-11":["n","Idulfitri 1448 H"],"2027-3-12":["c","Idulfitri"],"2027-3-15":["c","Idulfitri"],"2027-3-25":["c","Wafat Yesus Kristus"],"2027-3-26":["n","Wafat Yesus Kristus"],"2027-3-28":["n","Paskah"],"2027-5-1":["n","Hari Buruh"],"2027-5-6":["n","Kenaikan Yesus Kristus"],"2027-5-17":["n","Iduladha 1448 H"],"2027-5-18":["c","Iduladha"],"2027-5-19":["c","Waisak"],"2027-5-20":["n","Waisak"],"2027-6-1":["n","Hari Lahir Pancasila"],"2027-6-6":["n","1 Muharam"],"2027-8-15":["n","Maulid Nabi"],"2027-8-17":["n","HUT Kemerdekaan RI"],"2027-12-24":["c","Natal"],"2027-12-25":["n","Hari Natal"],"2027-12-26":["n","Isra Mikraj"]};
+var OPT=[{v:"2",t:"2j",m:3.5,c:"c1"},{v:"3.5",t:"3,5j",m:6.5,c:"c2"},{v:"7",t:"7j",m:14,c:"c3"}],OB={};
+OPT.forEach(function(o){OB[o.v]=o});
+var data={},rows=[];
+function rp(n){return "Rp "+Math.round(n).toLocaleString("id-ID")}
+function ym(){var q=$("bln").value.split("-");return{y:+q[0],m:+q[1]}}
+function dayOf(i){var p=ym();return new Date(p.y,p.m-2,20+i)}
+function count(){var p=ym();return Math.round((new Date(p.y,p.m-1,20)-new Date(p.y,p.m-2,21))/864e5)+1}
+function info(i){
+ var dt=dayOf(i),hd=HOL[dt.getFullYear()+"-"+(dt.getMonth()+1)+"-"+dt.getDate()],red=(hd&&hd[0]==="n")||dt.getDay()===0;
+ return{dt:dt,cls:red?"hr":(hd?"cb":""),lab:hd?(hd[0]==="c"?"Cuti bersama: ":"")+hd[1]:(dt.getDay()===6?"Sabtu setengah hari":"")}
+}
+function load(){try{data=JSON.parse(localStorage.getItem("lembur-"+$("bln").value)||"{}")}catch(e){data={}}}
+function save(){try{localStorage.setItem("lembur-"+$("bln").value,JSON.stringify(data));localStorage.setItem("lembur-rate",$("rate").value)}catch(e){}}
+function mk(i){
+ var f=info(i),r=document.createElement("div");r.className="r "+f.cls;
+ r.innerHTML='<div class="d"><b>'+f.dt.getDate()+'</b><span>'+HARI[f.dt.getDay()]+' '+BLN[f.dt.getMonth()]+'</span></div><div class="m"><span class="hol"></span><span class="amt"></span></div><div class="c"></div>';
+ r.querySelector(".hol").textContent=f.lab;
+ var c=r.querySelector(".c");
+ OPT.forEach(function(o){
+  var b=document.createElement("button");b.type="button";b.textContent=o.t;b.className=o.c;b.setAttribute("data-v",o.v);
+  b.onclick=function(){if(data[i]===o.v)delete data[i];else data[i]=o.v;save();hitung()};
+  c.appendChild(b)
+ });
+ return r
+}
+function mu(){try{$("target").value=localStorage.getItem("lembur-target-"+$("bln").value)||""}catch(e){}}
+function build(){
+ load();var L=$("list"),n=count();L.innerHTML="";rows=[];
+ for(var i=1;i<=n;i++){var r=mk(i);rows.push(r);L.appendChild(r)}
+ mu();hitung()
+}
+function hitung(){
+ var r=+$("rate").value||0,T=+$("target").value||0,tot=0,cnt=0,jam=0,vals=[];
+ rows.forEach(function(el,k){
+  var o=OB[data[k+1]],bs=el.querySelectorAll(".c button");
+  el.classList.toggle("on",!!o);
+  for(var j=0;j<bs.length;j++)bs[j].classList.toggle("sel",!!o&&bs[j].getAttribute("data-v")===o.v);
+  var u=o?o.m*r:0;vals.push(u);
+  if(o){tot+=u;cnt++;jam+=parseFloat(o.v)}
+  el.querySelector(".amt").textContent=o?rp(u):""
+ });
+ $("tot").textContent=rp(tot);
+ $("sub").textContent=cnt+" hari lembur • "+jam.toLocaleString("id-ID")+" jam";
+ var p=ym(),a=new Date(p.y,p.m-2,21),b=new Date(p.y,p.m-1,20);
+ $("per").textContent="Periode "+a.getDate()+" "+BLN[a.getMonth()]+" – "+b.getDate()+" "+BLN[b.getMonth()]+" "+b.getFullYear();
+ progres(tot,T,r,a,b);grafik(vals,tot,T)
+}
+function progres(tot,T,r,a,b){
+ var pg=$("progres"),f=$("barfill");
+ if(T>0){
+  f.style.width=Math.min(100,tot/T*100)+"%";
+  var s=T-tot,ex="",td=new Date();td=new Date(td.getFullYear(),td.getMonth(),td.getDate());
+  if(s>0&&r>0)ex=" Sisa "+rp(s)+", setara sekitar "+Math.ceil(s/(14*r))+" kali lembur 7 jam Minggu/merah, "+Math.ceil(s/(6.5*r))+" kali lembur 3,5 jam, atau "+Math.ceil(s/(3.5*r))+" kali lembur 2 jam.";
+  else if(s<=0)ex=" Target tercapai!";
+  if(td>=a&&td<=b&&s>0)ex+=" Tersisa "+Math.round((b-td)/864e5)+" hari sampai tutup buku.";
+  pg.textContent=Math.round(tot/T*100)+"% dari target."+ex
+ }else{f.style.width="0";pg.textContent="Isi target untuk memantau progres."}
+}
+function grafik(vals,tot,T){
+ var N=vals.length,W=330,L=6,bw=(W-2*L)/N,i,s="",bs=128,tp=22,mx=Math.max.apply(null,vals.concat([1]));
+ function lab(y){var t="";for(var k=0;k<N;k++){var f=info(k+1);t+='<text class="'+(f.cls==="hr"?"lr":"")+'" style="font-size:8px" text-anchor="middle" x="'+(L+(k+.5)*bw).toFixed(1)+'" y="'+y+'">'+f.dt.getDate()+'</text>'}return t}
+ s+='<line x1="'+L+'" y1="'+bs+'" x2="'+(W-L)+'" y2="'+bs+'" style="stroke:var(--line)"/>';
+ for(i=0;i<N;i++){
+  var h=vals[i]/mx*(bs-tp),o=OB[data[i+1]];
+  if(h>0&&o)s+='<rect class="'+o.c+'" x="'+(L+i*bw+1).toFixed(1)+'" y="'+(bs-h).toFixed(1)+'" width="'+(bw-2).toFixed(1)+'" height="'+h.toFixed(1)+'" rx="2"/>'
+ }
+ s+=lab(bs+12)+'<text x="'+L+'" y="12">'+(tot>0?"Tertinggi: "+rp(Math.max.apply(null,vals)):"Belum ada lembur")+'</text>';
+ $("g1").innerHTML=s;
+ var c=0,pts=[],top2=Math.max(tot,T,1),b2=98,tp2=14,s2="";
+ for(i=0;i<N;i++){c+=vals[i];pts.push((L+(i+.5)*bw).toFixed(1)+","+(b2-c/top2*(b2-tp2)).toFixed(1))}
+ s2+='<line x1="'+L+'" y1="'+b2+'" x2="'+(W-L)+'" y2="'+b2+'" style="stroke:var(--line)"/>';
+ s2+='<polygon class="ar" points="'+(L+.5*bw).toFixed(1)+','+b2+' '+pts.join(" ")+' '+(L+(N-.5)*bw).toFixed(1)+','+b2+'"/>';
+ s2+='<polyline class="ln" points="'+pts.join(" ")+'"/>';
+ if(T>0){var ty=b2-T/top2*(b2-tp2);s2+='<line x1="'+L+'" y1="'+ty.toFixed(1)+'" x2="'+(W-L)+'" y2="'+ty.toFixed(1)+'" style="stroke:var(--c3);stroke-dasharray:4 3"/><text x="'+(W-L)+'" y="'+(ty-4).toFixed(1)+'" text-anchor="end">Target</text>'}
+ $("g2").innerHTML=s2+lab(b2+12)
+}
+function slip(){
+ var msg=$("slipmsg");msg.textContent="";
+ var J=window.jspdf&&window.jspdf.jsPDF;
+ if(!J){msg.textContent="Pembuat PDF belum termuat. Muat ulang halaman lalu coba lagi.";return}
+ var p=ym(),r=+$("rate").value||0,a=new Date(p.y,p.m-2,21),b=new Date(p.y,p.m-1,20),n=count(),items=[],tot=0,jam=0;
+ for(var i=1;i<=n;i++){
+  var o=OB[data[i]];if(!o)continue;
+  var f=info(i),u=o.m*r;tot+=u;jam+=parseFloat(o.v);
+  items.push({t:f.dt.getDate()+" "+BLN[f.dt.getMonth()]+" ("+HARI[f.dt.getDay()]+")",j:o.v==="7"?"7 jam Minggu/merah":(o.v==="3.5"?"3,5 jam":"2 jam"),p:String(o.m).replace(".",",")+"×",u:u})
+ }
+ var W=900,RH=46,rws=Math.max(items.length,1),H=rws*RH+556;
+ var c=document.createElement("canvas");c.width=W;c.height=H;
+ var x=c.getContext("2d"),F="system-ui,-apple-system,Segoe UI,Roboto,sans-serif",G="#68716c",K="#1d2421";
+ function T(s,px,py,font,col,al){x.font=font;x.fillStyle=col;x.textAlign=al||"left";x.fillText(s,px,py)}
+ x.fillStyle="#fff";x.fillRect(0,0,W,H);
+ x.fillStyle="#0f766e";x.fillRect(0,0,W,120);
+ T("SLIP LEMBUR",40,76,"bold 40px "+F,"#fff");
+ T("Periode",40,170,"22px "+F,G);T(a.getDate()+" "+BLN[a.getMonth()]+" "+a.getFullYear()+" – "+b.getDate()+" "+BLN[b.getMonth()]+" "+b.getFullYear(),260,170,"bold 22px "+F,K);
+ T("Upah per jam",40,210,"22px "+F,G);T(rp(r),260,210,"bold 22px "+F,K);
+ x.fillStyle="#eef1ee";x.fillRect(40,240,820,46);
+ T("Tanggal",56,271,"bold 20px "+F,G);T("Lembur",330,271,"bold 20px "+F,G);T("Pengali",600,271,"bold 20px "+F,G);T("Jumlah",844,271,"bold 20px "+F,G,"right");
+ var y0=286;
+ if(!items.length)T("Belum ada lembur",56,y0+31,"20px "+F,G);
+ items.forEach(function(it,k){var py=y0+k*RH;T(it.t,56,py+31,"20px "+F,K);T(it.j,330,py+31,"20px "+F,K);T(it.p,600,py+31,"20px "+F,K);T(rp(it.u),844,py+31,"20px "+F,K,"right");x.fillStyle="#dfe3df";x.fillRect(40,py+RH-1,820,1)});
+ var ty=y0+rws*RH+50;
+ T("Total hari lembur",56,ty,"22px "+F,G);T(items.length+" hari",844,ty,"bold 22px "+F,K,"right");
+ T("Total jam lembur",56,ty+42,"22px "+F,G);T(jam.toLocaleString("id-ID")+" jam",844,ty+42,"bold 22px "+F,K,"right");
+ x.fillStyle="#0f766e";x.fillRect(40,ty+70,820,80);
+ T("TOTAL LEMBUR",64,ty+121,"bold 24px "+F,"#fff");T(rp(tot),836,ty+123,"bold 34px "+F,"#fff","right");
+ var nw=new Date();T("Dicetak "+nw.getDate()+" "+BLN[nw.getMonth()]+" "+nw.getFullYear(),40,ty+190,"18px "+F,G);
+ var pw=210,ph=297,iw=Math.min(190,(ph-20)*W/H),ih=iw*H/W,pdf=new J({unit:"mm",format:"a4"});
+ pdf.addImage(c.toDataURL("image/jpeg",0.92),"JPEG",(pw-iw)/2,10,iw,ih);
+ try{var u=URL.createObjectURL(pdf.output("blob")),al=document.createElement("a");al.href=u;al.download="slip-lembur-"+p.y+"-"+String(p.m).padStart(2,"0")+".pdf";document.body.appendChild(al);al.click();al.remove();setTimeout(function(){URL.revokeObjectURL(u)},4000);msg.textContent="Slip diunduh."}catch(e){msg.textContent="Gagal membuat slip."}
+}
+(function(){
+ var t=new Date(),d0=new Date(t.getFullYear(),t.getMonth()+(t.getDate()>20?1:0),1);
+ $("bln").value=d0.getFullYear()+"-"+String(d0.getMonth()+1).padStart(2,"0");
+ try{var r=localStorage.getItem("lembur-rate");if(r)$("rate").value=r}catch(e){}
+ try{localStorage.removeItem("lembur-target")}catch(e){}
+ $("bln").onchange=build;
+ $("rate").oninput=function(){save();hitung()};
+ $("target").oninput=function(){var g=$("target"),k="lembur-target-"+$("bln").value;try{if(g.value)localStorage.setItem(k,g.value);else localStorage.removeItem(k)}catch(e){}hitung()};
+ $("slip").onclick=slip;
+ var rt=0;
+ $("reset").onclick=function(){
+  var b=$("reset");
+  if(!rt){b.textContent="Yakin? Ketuk lagi untuk menghapus";rt=setTimeout(function(){rt=0;b.textContent="Kosongkan periode ini"},4000)}
+  else{clearTimeout(rt);rt=0;b.textContent="Kosongkan periode ini";data={};save();build()}
+ };
+ build()
+})();
+(function(){
+ var K="lembur-pin";
+ function h(s){var x=5381;s="tl"+s;for(var i=0;i<s.length;i++){x=((x<<5)+x+s.charCodeAt(i))|0}return String(x)}
+ var st="";try{st=localStorage.getItem(K)||""}catch(e){}
+ var mode=st?"buka":"buat",first="",inp=$("pin"),msg=$("pmsg"),ttl=$("ptitle");
+ function show(){ttl.textContent=mode==="buka"?"Masukkan PIN":(mode==="buat"?"Buat PIN 6 angka":"Ulangi PIN");inp.value=""}
+ function ok(){document.body.classList.remove("lock");$("lock").style.display="none"}
+ inp.oninput=function(){
+  inp.value=inp.value.replace(/\D/g,"").slice(0,6);
+  if(inp.value.length<6)return;
+  var v=inp.value;
+  if(mode==="buka"){if(h(v)===st)ok();else{msg.textContent="PIN salah";inp.value=""}}
+  else if(mode==="buat"){first=v;mode="ulang";msg.textContent="";show()}
+  else{if(v===first){try{localStorage.setItem(K,h(v))}catch(e){}ok()}else{msg.textContent="PIN tidak sama, ulangi dari awal";mode="buat";show()}}
+ };
+ show()
+})();
+(function(){try{var c=document.createElement("canvas");c.width=c.height=180;var x=c.getContext("2d");x.fillStyle="#0f766e";x.fillRect(0,0,180,180);x.font="110px serif";x.textAlign="center";x.textBaseline="middle";x.fillText("\ud83d\udcb0",90,98);var u=c.toDataURL("image/png");$("ic").href=u;$("ai").href=u}catch(e){}})();
+</script>
+</body>
+</html>
